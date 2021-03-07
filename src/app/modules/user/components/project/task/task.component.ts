@@ -10,7 +10,22 @@ import { ITask } from '../../../../../interfaces/task.interface';
 export class TaskComponent implements OnInit {
   @Input() task: ITask;
 
+  private editable = false;
+
   constructor() {}
 
   ngOnInit() {}
+
+  public edit(): void {
+    this.editable = !this.editable;
+  }
+
+  public delete(): void {
+    console.log('delete');
+  }
+
+  public sendEdit(): void {
+    console.log('enter', { old: this.task.description });
+    this.editable = false;
+  }
 }
